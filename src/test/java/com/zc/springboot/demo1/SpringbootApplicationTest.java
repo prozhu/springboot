@@ -1,5 +1,5 @@
 
-package com.zc.springboot;
+package com.zc.springboot.demo1;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,8 +16,14 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import com.zc.springboot.controller.HelloController;
+import com.zc.springboot.controller.demo1.HelloController;
 
+/**
+ * springboot 的入门篇（一）
+ * @author ：djzc
+ * @createTime ：2018年12月12日 下午2:40:38 
+ * @updateTime ：2018年12月12日 下午2:40:38
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringbootApplicationTest {

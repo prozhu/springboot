@@ -1,4 +1,4 @@
-package com.zc.springboot.controller;
+package com.zc.springboot.controller.demo1;
 
 import java.util.HashMap;
 import java.util.Map;

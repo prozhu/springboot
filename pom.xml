@@ -45,6 +45,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<!-- 启用热部署配置 -->
+			<!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
 			<optional>true</optional>
 		</dependency>
 
@@ -52,11 +53,13 @@
 
 	<build>
 		<plugins>
-
+			<!-- 启用项目热部署后，还需要spring-boot-maven-plugin：开启 -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<!-- fork: 如果没有配置该项配置，devtools不会起作用的 -->
+					<!-- 在完整的环境下，打包的话，该热部署会被禁用掉 -->
 					<fork>true</fork>
 				</configuration>
 			</plugin>
