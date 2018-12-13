@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import com.zc.springboot.controller.HelloController;
+import com.zc.springboot.controller.demo1.HelloController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -35,26 +35,30 @@ public class SpringbootApplicationTests {
 	@Test
 	public void getHello() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
-				.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andDo(MockMvcResultHandlers.print()).andReturn();
 	}
-	
-	
+
 	/*
 	 * 使用MOck测试post请求
 	 */
 	@Test
 	public void getHelloPost() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.post("/helloPost").accept(MediaType.APPLICATION_JSON_UTF8))
-				.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
+		mvc.perform(
+				MockMvcRequestBuilders.post("/helloPost").accept(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andDo(MockMvcResultHandlers.print()).andReturn();
 	}
-	
+
 	@Test
 	public void TestDeliveryParam() throws Exception {
-		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>() ;
+		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("name", "zhuc");
 		params.add("age", "18");
-		mvc.perform(MockMvcRequestBuilders.post("/receiveParam").params(params).accept(MediaType.APPLICATION_JSON_UTF8))
-		.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
+		mvc.perform(MockMvcRequestBuilders.post("/receiveParam").params(params)
+				.accept(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 
 	@Test
