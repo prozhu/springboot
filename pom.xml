@@ -75,7 +75,6 @@
 					<fork>true</fork>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 
