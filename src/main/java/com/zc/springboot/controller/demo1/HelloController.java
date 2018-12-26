@@ -14,7 +14,7 @@ public class HelloController {
 	public Map<String, String> getString() {
 		Map<String, String> result = new HashMap<>();
 		result.put("name", "TOME");
-		result.put("age", "18");
+		result.put("age", "999");
 		return result;
 //		return "hello springboot，我是get请求";
 	}
@@ -32,6 +32,11 @@ public class HelloController {
 		return "我是来接收参数的，你呢";
 	}
 	
+	
+	@RequestMapping(method = RequestMethod.GET, value = { "receiveParam2" })
+	public String getTestMockMvc2(String name, String age) {
+		return "我是来接收参数的，你呢";
+	}
 	
 
 }
