@@ -1,0 +1,25 @@
+16:49:55.691 INFO  org.springframework.boot.StartupInfoLogger 50 logStarting - Starting SpringbootApplication on zcDePc with PID 141480 (C:\Users\djzc\Downloads\Compressed\springboot\target\classes started by djzc in C:\Users\djzc\Downloads\Compressed\springboot)
+16:49:55.692 INFO  org.springframework.boot.SpringApplication 675 logStartupProfileInfo - No active profile set, falling back to default profiles: default
+16:49:56.040 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 126 registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+16:49:56.044 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 182 registerRepositoriesIn - Finished Spring Data repository scanning in 3ms. Found 0 repository interfaces.
+16:49:56.121 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 330 postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$76c27efc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:49:56.246 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 90 initialize - Tomcat initialized with port(s): 8080 (http)
+16:49:56.247 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing ProtocolHandler ["http-nio-8080"]
+16:49:56.247 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+16:49:56.248 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet Engine: Apache Tomcat/9.0.13
+16:49:56.272 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+16:49:56.272 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 296 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 576 ms
+16:49:56.343 INFO  com.zaxxer.hikari.HikariDataSource 110 getConnection - HikariPool-3 - Starting...
+16:49:56.351 INFO  com.zaxxer.hikari.HikariDataSource 123 getConnection - HikariPool-3 - Start completed.
+16:49:56.358 INFO  org.hibernate.jpa.internal.util.LogHelper 31 logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+16:49:56.374 INFO  org.hibernate.dialect.Dialect 157 <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+16:49:56.414 INFO  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean 415 buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:49:56.424 INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer 57 startServer - LiveReload server is running on port 35729
+16:49:56.464 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration 234 openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:49:56.728 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting ProtocolHandler ["http-nio-8080"]
+16:49:56.731 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Using a shared selector for servlet write/read
+16:49:56.743 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 204 start - Tomcat started on port(s): 8080 (http) with context path ''
+16:49:56.744 INFO  org.springframework.boot.StartupInfoLogger 59 logStarted - Started SpringbootApplication in 1.102 seconds (JVM running for 366.185)
+16:49:56.751 INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener 56 onApplicationEvent - Condition evaluation unchanged
