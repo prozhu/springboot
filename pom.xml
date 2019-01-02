@@ -54,6 +54,20 @@
 			<version>1.2.54</version>
 		</dependency>
 
+		<!-- 引用httpClient 发送包 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.6</version>
+		</dependency>
+
+		<!-- -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
+		</dependency>
+
 
 		<!-- 引用log4j2 -->
 		<dependency>
@@ -83,15 +97,17 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<!--引入spring redis的依赖：springboot 1.x 和 2.x 中redis的依赖是不一样的
-		  1. springboot 1.x : spring-boot-starter-redis
-          2. springboot 1.x : spring-boot-starter-data-redis
-		 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>
+		<!--引入spring redis的依赖：springboot 1.x 和 2.x 中redis的依赖是不一样的 1. springboot 
+			1.x : spring-boot-starter-redis 2. springboot 1.x : spring-boot-starter-data-redis -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-redis</artifactId> 
+			</dependency> -->
 
+		<!-- jedis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.8.2</version>
+		</dependency>
 
 	</dependencies>
 

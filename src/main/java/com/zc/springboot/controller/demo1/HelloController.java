@@ -5,19 +5,15 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
+import com.zc.springboot.base.BaseController;
 
 @RestController
-public class HelloController {
-
-	@Autowired
-	private StringRedisTemplate template;
+public class HelloController extends BaseController {
 
 	private static final Logger LOGGER = LogManager.getLogger(HelloController.class.getName());
 
@@ -31,6 +27,7 @@ public class HelloController {
 		LOGGER.info(JSON.toJSON(result));
 		LOGGER.warn(JSON.toJSON(result));
 		LOGGER.error(JSON.toJSON(result));
+		redis.set("info", JSON.toJSON(result).toString());
 		return result;
 //		return "hello springboot，我是get请求";
 	}
