@@ -25,13 +25,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-           <!-- 排除外springboot 自带的日志工具，方便后期引入log4j2 ，不然没有效果的 -->
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
+			<exclusions>
+				<!-- 排除外springboot 自带的日志工具，方便后期引入log4j2 ，不然没有效果的 -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- 测试模块，包括JUnit、Hamcrest、Mockito。 -->
@@ -82,6 +82,17 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+
+		<!--引入spring redis的依赖：springboot 1.x 和 2.x 中redis的依赖是不一样的
+		  1. springboot 1.x : spring-boot-starter-redis
+          2. springboot 1.x : spring-boot-starter-data-redis
+		 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,10 +16,14 @@ import com.alibaba.fastjson.JSON;
 @RestController
 public class HelloController {
 
+	@Autowired
+	private StringRedisTemplate template;
+
 	private static final Logger LOGGER = LogManager.getLogger(HelloController.class.getName());
 
 	@RequestMapping(method = RequestMethod.GET, value = { "hello" })
 	public Map<String, String> getString(String id) {
+
 		Map<String, String> result = new HashMap<>();
 		result.put("name", "TOME");
 		result.put("age", "999");
