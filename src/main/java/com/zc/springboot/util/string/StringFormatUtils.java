@@ -43,7 +43,11 @@ public class StringFormatUtils {
 		for (int i = 0; i < split.length; i++) {
 			// 在根据 "="号进行分隔
 			String[] fieldArr = split[i].split("=");
-			result.put(fieldArr[0], fieldArr[1]);
+			String tempValue = "";
+			if (fieldArr.length == 2) {
+				tempValue = fieldArr[1];
+			}
+			result.put(fieldArr[0], tempValue);
 		}
 		return result.toJSONString();
 	}
