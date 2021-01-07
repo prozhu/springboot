@@ -10,10 +10,8 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.lang.reflect.Field;
+import java.util.*;
 
 /**
  * 使用hibernate validator校验框架，在代码中校验实体模型
@@ -133,6 +131,32 @@ public class ModelValidator {
             }
         }
         return validatorResult;
+    }
+
+    /**
+     * 获取指定类中，传入属性的差集
+     * @author zc
+     * @createTime 2021/1/7 17:18
+     * @param object 指定类
+     * @param propertyFields 需要排除的属性
+     * @return java.lang.String[]
+     */
+    public static String[] getAnotherPropertyField(Object object, String... propertyFields) {
+        if (ObjectUtils.isEmpty(propertyFields)) {
+            return new String[]{};
+        }
+        List<String> anotherProperty = new ArrayList<>();
+        Field[] fields = object.getClass().getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            for (int j = 0; j < propertyFields.length; j++) {
+                if (!Objects.equals(fields[i].getName(), propertyFields[j])) {
+                    anotherProperty.add(fields[i].getName());
+                    break;
+                }
+            }
+        }
+        String[] result = new String[]{};
+        return anotherProperty.toArray(result);
     }
 
 }
