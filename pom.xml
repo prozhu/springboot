@@ -66,14 +66,12 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.6</version>
 		</dependency>
 
 		<!-- apache 的共同包 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.7</version>
 		</dependency>
 
 
@@ -83,6 +81,18 @@
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+
+		<!--钉钉开发工具包-->
+<!--		<dependency>
+			<groupId>net.guerlab.smart.dingtalk</groupId>
+			<artifactId>smart-dingtalk-api</artifactId>
+			<version>20.2.0</version>
+		</dependency>-->
 
 		<!-- 支持项目热启动/部署 -->
 		<dependency>
@@ -115,6 +125,18 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>2.8.2</version>
+		</dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.0.1</version>
+			<scope>compile</scope>
 		</dependency>
 
 	</dependencies>
