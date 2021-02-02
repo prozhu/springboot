@@ -32,7 +32,7 @@ public class HelloController extends BaseController {
 //		return "hello springboot，我是get请求";
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = { "helloPost" })
+	@RequestMapping(method = RequestMethod.POST, value = { "hello/v1:.1/Post" })
 	public String getPostString() {
 		return "hello springboot，我是post请求";
 	}

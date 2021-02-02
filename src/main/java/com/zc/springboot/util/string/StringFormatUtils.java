@@ -1,7 +1,10 @@
 package com.zc.springboot.util.string;
 
+import java.util.Set;
+
 import org.springframework.util.ObjectUtils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import lombok.extern.slf4j.Slf4j;
@@ -50,5 +53,28 @@ public class StringFormatUtils {
 			result.put(fieldArr[0], tempValue);
 		}
 		return result.toJSONString();
+	}
+
+	/**
+	 * json格式的字符串转为 formData格式的字符串(各个字段中间用&拼接)
+	 * @author ：zc
+	 * @createTime ：2020年7月23日 上午9:36:00 
+	 * @updateTime ：2020年7月23日 上午9:36:00 
+	 * @alterMan：zc
+	 * @param jsonStr json字符串
+	 * @return：
+	 */
+	public static String jsonToFormData(String jsonStr) {
+		if (ObjectUtils.isEmpty(jsonStr)) {
+			log.error("传递的字符串为空，请检查");
+			return "";
+		}
+		JSONObject parseObject = JSON.parseObject(jsonStr);
+		Set<String> keySet = parseObject.keySet();
+		StringBuilder resultStr = new StringBuilder();
+		for (String key : keySet) {
+			resultStr.append("&").append(key).append("=").append(parseObject.get(key));
+		}
+		return resultStr.substring(1);
 	}
 }
