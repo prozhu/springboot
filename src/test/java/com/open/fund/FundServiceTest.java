@@ -54,6 +54,7 @@ public class FundServiceTest {
         fundMap.put("004854", "1300");
         fundMap.put("161032", "1800");
         fundMap.put("004856", "1500");
+        fundMap.put("320007", "500");
     }
 
 
