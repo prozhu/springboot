@@ -9,6 +9,15 @@ import lombok.Data;
  */
 @Data
 public class FundModel {
+    
+    public FundModel(String code, String investMoney) {
+        this.code = code;
+        this.investMoney = investMoney;
+    }
+
+    public FundModel() {
+    }
+
     /**
      * code码
      */

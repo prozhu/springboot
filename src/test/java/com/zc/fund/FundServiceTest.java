@@ -32,7 +32,6 @@ public class FundServiceTest {
         service.getFundIncome(paramList);
     }
 
-
     /**
      * map 转list
      * @param fundMap
@@ -45,10 +44,7 @@ public class FundServiceTest {
             Map.Entry<String, String> next = iterator.next();
             String code = next.getKey();
             String investMoney = next.getValue();
-            FundModel temp = new FundModel();
-            temp.setCode(code);
-            temp.setInvestMoney(investMoney);
-            paramList.add(temp);
+            paramList.add(new FundModel(code, investMoney));
         }
         return paramList;
     }
