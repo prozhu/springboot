@@ -31,14 +31,15 @@ public class FundService {
         if (paramList.isEmpty()) {
             return totalMoney;
         }
-        HashMap<String, BigDecimal> resultMap = new HashMap<String, BigDecimal>();
+        //存储基金的数据，格式为：code，基金详情模型
+        HashMap<String, FundVO> resultMap = new HashMap<String, FundVO>();
         //存储基金的数据，格式为：code，投资总额
         HashMap<String, String> fundMap = new HashMap<>();
         //1. 遍历调用paramList
         for (FundModel temp : paramList) {
             String code = temp.getCode();
-            BigDecimal ygz = calculateAndSend(code);
-            resultMap.put(code, ygz);
+            FundVO fund  = calculateAndSend(code);
+            resultMap.put(code, fund);
             totalMoney = totalMoney.add(new BigDecimal(temp.getInvestMoney()));
             fundMap.put(code, temp.getInvestMoney());
         }
@@ -65,32 +66,36 @@ public class FundService {
      * @param fundCode
      * @return
      */
-    private BigDecimal calculateAndSend(String fundCode) {
+    private FundVO calculateAndSend(String fundCode) {
         String sendResult = sendGet(fundCode);
         String replaceResult = sendResult.replace("jsonpgz(", "").replace(");", "");
         JSONObject jsonObject = JSON.parseObject(replaceResult);
-        return jsonObject.getBigDecimal("gszzl");
+        FundVO fund = new FundVO();
+        fund.setCode(fundCode);
+        fund.setGszzl(jsonObject.getBigDecimal("gszzl"));
+        fund.setName(jsonObject.getString("name"));
+        return fund;
     }
 
 
     /**
      * 计算基金今日累计收益
-     * @param param
+     * @param param 存储基金的数据，格式为：code，基金详情模型
      * @param fundMap 存储基金的数据，格式为：code，投资总额
      * @return
      */
-    private BigDecimal calculateFund(HashMap<String, BigDecimal> param, HashMap<String, String> fundMap) {
+    private BigDecimal calculateFund(HashMap<String, FundVO> param, HashMap<String, String> fundMap) {
         BigDecimal money = BigDecimal.ZERO;
-        Iterator<Map.Entry<String, BigDecimal>> iterator = param.entrySet().iterator();
+        Iterator<Map.Entry<String, FundVO>> iterator = param.entrySet().iterator();
         while (iterator.hasNext()) {
-            Map.Entry<String, BigDecimal> next = iterator.next();
+            Map.Entry<String, FundVO> next = iterator.next();
             String code = next.getKey();
-            BigDecimal ygz = next.getValue();
+            FundVO fund = next.getValue();
             //从fund 库里获取money，在乘以 预估值
             BigDecimal initialMoney = new BigDecimal(fundMap.get(code));
             //计算利润
-            BigDecimal multiply = initialMoney.multiply((ygz.divide(new BigDecimal("100"))));
-            log.info("基金code：{} , 本次利润为：{}", code, multiply.setScale(2).toPlainString());
+            BigDecimal multiply = initialMoney.multiply((fund.getGszzl().divide(new BigDecimal("100"))));
+            log.info("{}({}) , 利润为：{}", fund.getName(), fund.getCode(), multiply.setScale(2).toPlainString());
             //累加利润
             money = money.add(multiply);
         }
