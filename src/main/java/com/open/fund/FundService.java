@@ -6,6 +6,7 @@ import com.open.utils.http.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -25,24 +26,24 @@ public class FundService {
      * @param paramList
      * @return
      */
-    public Double getFundIncome(List<FundModel> paramList) {
-        Double totalMoney = 0.0;
+    public BigDecimal getFundIncome(List<FundModel> paramList) {
+        BigDecimal totalMoney = BigDecimal.ZERO;
         if (paramList.isEmpty()) {
             return totalMoney;
         }
-        HashMap<String, Double> resultMap = new HashMap<String, Double>();
+        HashMap<String, BigDecimal> resultMap = new HashMap<String, BigDecimal>();
         //存储基金的数据，格式为：code，投资总额
         HashMap<String, String> fundMap = new HashMap<>();
         //1. 遍历调用paramList
         for (FundModel temp : paramList) {
             String code = temp.getCode();
-            Double ygz = calculateAndSend(code);
+            BigDecimal ygz = calculateAndSend(code);
             resultMap.put(code, ygz);
-            totalMoney = totalMoney + Double.parseDouble(temp.getInvestMoney());
+            totalMoney = totalMoney.add(new BigDecimal(temp.getInvestMoney()));
             fundMap.put(code, temp.getInvestMoney());
         }
         //2. 计算
-        Double makeMoney = calculateFund(resultMap, fundMap);
+        BigDecimal makeMoney = calculateFund(resultMap, fundMap);
         log.info("今日利润：{}", makeMoney);
         log.info("投资总额：{}", totalMoney);
         return makeMoney;
@@ -64,11 +65,11 @@ public class FundService {
      * @param fundCode
      * @return
      */
-    private Double calculateAndSend(String fundCode) {
+    private BigDecimal calculateAndSend(String fundCode) {
         String sendResult = sendGet(fundCode);
         String replaceResult = sendResult.replace("jsonpgz(", "").replace(");", "");
         JSONObject jsonObject = JSON.parseObject(replaceResult);
-        return jsonObject.getDouble("gszzl");
+        return jsonObject.getBigDecimal("gszzl");
     }
 
 
@@ -78,18 +79,23 @@ public class FundService {
      * @param fundMap 存储基金的数据，格式为：code，投资总额
      * @return
      */
-    private Double calculateFund(HashMap<String, Double> param, HashMap<String, String> fundMap) {
-        Double money = 0.0;
-        Iterator<Map.Entry<String, Double>> iterator = param.entrySet().iterator();
+    private BigDecimal calculateFund(HashMap<String, BigDecimal> param, HashMap<String, String> fundMap) {
+        BigDecimal money = BigDecimal.ZERO;
+        Iterator<Map.Entry<String, BigDecimal>> iterator = param.entrySet().iterator();
         while (iterator.hasNext()) {
-            Map.Entry<String, Double> next = iterator.next();
+            Map.Entry<String, BigDecimal> next = iterator.next();
             String code = next.getKey();
-            Double ygz = next.getValue();
+            BigDecimal ygz = next.getValue();
             //从fund 库里获取money，在乘以 预估值
-            Double initialMoney = Double.parseDouble(fundMap.get(code));
-            money = money + (initialMoney * (ygz / 100));
+            BigDecimal initialMoney = new BigDecimal(fundMap.get(code));
+            //计算利润
+            BigDecimal multiply = initialMoney.multiply((ygz.divide(new BigDecimal("100"))));
+            log.info("基金code：{} , 本次利润为：{}", code, multiply.setScale(2).toPlainString());
+            //累加利润
+            money = money.add(multiply);
         }
-        return money;
+        //默认四舍五入，保留2位小数
+        return money.setScale(2);
     }
 
 
