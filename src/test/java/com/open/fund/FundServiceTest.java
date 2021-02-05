@@ -43,12 +43,12 @@ public class FundServiceTest {
 
     private static HashMap<String, String> fundMap = new HashMap<>();
     static {
-        fundMap.put("160643", "2500");
-        fundMap.put("002190", "1400");
-        fundMap.put("003304", "2000");
+        fundMap.put("160643", "3000");
+        fundMap.put("002190", "2400");
+        fundMap.put("003304", "2500");
         fundMap.put("001027", "900");
         fundMap.put("160633", "2100");
-        fundMap.put("001552", "2800");
+        fundMap.put("001552", "1800");
         fundMap.put("003096", "200");
         fundMap.put("001631", "1000");
         fundMap.put("004854", "1300");
