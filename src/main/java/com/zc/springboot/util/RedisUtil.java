@@ -13,7 +13,7 @@ import redis.clients.jedis.JedisPool;
  * @createTime ：2018年12月29日 下午2:04:10 
  * @updateTime ：2018年12月29日 下午2:04:10
  */
-@Service("redis")
+//@Service("redis")
 public class RedisUtil {
 	@Autowired
 	private JedisPool jedisPool;
