@@ -1,0 +1,11 @@
+15:01:29.412 INFO  com.open.fund.FundService 98 calculateFund - 广发中证全指建筑材料指数A(004856) , 利润为：6.75
+15:01:29.419 INFO  com.open.fund.FundService 98 calculateFund - 农银新能源主题(002190) , 利润为：81.72
+15:01:29.420 INFO  com.open.fund.FundService 98 calculateFund - 易方达信息产业混合(001513) , 利润为：8.28
+15:01:29.420 INFO  com.open.fund.FundService 98 calculateFund - 天弘中证证券保险A(001552) , 利润为：-19.24
+15:01:29.420 INFO  com.open.fund.FundService 98 calculateFund - 前海开源国家比较优势混合(001102) , 利润为：42.25
+15:01:29.420 INFO  com.open.fund.FundService 98 calculateFund - 鹏华中证全指证券公司指数(LOF)(160633) , 利润为：-23.40
+15:01:29.420 INFO  com.open.fund.FundService 98 calculateFund - 广发中证全指汽车指数A(004854) , 利润为：3.60
+15:01:29.421 INFO  com.open.fund.FundService 98 calculateFund - 鹏华空天军工指数(LOF)A(160643) , 利润为：-10.80
+15:01:29.421 INFO  com.open.fund.FundService 98 calculateFund - 诺安成长混合(320007) , 利润为：6.84
+15:01:29.421 INFO  com.open.fund.FundService 48 getFundIncome - 今日利润：96.00
+15:01:29.421 INFO  com.open.fund.FundService 49 getFundIncome - 投资总额：22200
