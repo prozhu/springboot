@@ -1,10 +1,14 @@
 package com.open.utils.http;
 
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 /**
  * http请求类的工具包
@@ -32,5 +36,17 @@ public class HttpUtils {
         RestTemplate restTemplate =  restTemplate();
         ResponseEntity responseEntity = restTemplate.getForEntity(url, String.class);
         return responseEntity.getBody().toString();
+    }
+
+
+    /**
+     * 发送post请求
+     * @param url
+     * @param params
+     * @return
+     */
+    public static JSONObject sendPostRequest(String url, Map params) {
+        RestTemplate client =new RestTemplate();
+        return client.postForEntity(url, params, JSONObject.class).getBody();
     }
 }

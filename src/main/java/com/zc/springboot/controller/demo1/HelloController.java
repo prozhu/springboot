@@ -27,7 +27,7 @@ public class HelloController extends BaseController {
 		LOGGER.info(JSON.toJSON(result));
 		LOGGER.warn(JSON.toJSON(result));
 		LOGGER.error(JSON.toJSON(result));
-		redis.set("info", JSON.toJSON(result).toString());
+//		redis.set("info", JSON.toJSON(result).toString());
 		return result;
 //		return "hello springboot，我是get请求";
 	}
