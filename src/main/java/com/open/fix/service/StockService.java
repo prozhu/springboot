@@ -74,6 +74,7 @@ public class StockService {
         List<String> noStock4 = new ArrayList<>();
 
         for (int i = 0; i < prodctionNo.length; i++) {
+            log.info("正在处理第{}条数据，请稍后~", i + 1);
             String productNo = prodctionNo[i];
             //1. 通过生产单号查询库存信息
             JSONObject result = selectOrderStock(productNo);
