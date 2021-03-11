@@ -45,14 +45,14 @@ public class FundServiceTest {
     static {
         fundMap.put("001102", "1300");
         fundMap.put("002190", "3600");
-        fundMap.put("160633", "4500");
+        fundMap.put("160633", "5000");
         fundMap.put("004854", "2000");
         fundMap.put("160643", "4000");
         fundMap.put("001552", "2600");
        // fundMap.put("003096", "200");
         fundMap.put("001513", "900");
         fundMap.put("320007", "1800");
-        fundMap.put("004856", "1500");
+        fundMap.put("004856", "2000");
     }
 
 
