@@ -1,6 +1,6 @@
 package com.open.utils.validator.constraints.impl;
 
-import com.open.utils.validator.constraints.PatternExincludeNextline;
+import com.open.utils.validator.constraints.PatternExcludeNextline;
 import org.springframework.util.StringUtils;
 
 import javax.validation.ConstraintValidator;
@@ -13,11 +13,11 @@ import java.util.regex.Pattern;
  * @author ：zc
  * @createTime ：2021/4/8 16:42
  */
-public class PatternXNewlineConstraint implements  ConstraintValidator<PatternExincludeNextline, String>{
+public class PatternExcludeNextlineConstraint implements  ConstraintValidator<PatternExcludeNextline, String>{
 
     private String regex;
     @Override
-    public void initialize(PatternExincludeNextline constraintAnnotation) {
+    public void initialize(PatternExcludeNextline constraintAnnotation) {
         regex = constraintAnnotation.value();
     }
 

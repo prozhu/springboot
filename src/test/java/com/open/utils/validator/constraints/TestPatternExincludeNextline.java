@@ -23,8 +23,8 @@ public class TestPatternExincludeNextline {
      */
     @Test
     public void testPatternExincludeNextline() {
-        TestPatternExincludeNextlineFunction model = new TestPatternExincludeNextlineFunction();
-        model.setConSignee("fsdfsdfsdfs\n22");
+        TestPatternExcludeNextlineFunction model = new TestPatternExcludeNextlineFunction();
+        model.setConSignee("hello world ,hello all,\nhello java hello python");
         Map<String, String> map = ModelValidator.validatorModelParam(model);
         log.info("result is :{}", JSON.toJSONString(map));
     }
@@ -32,8 +32,8 @@ public class TestPatternExincludeNextline {
 
 
 @Data
-class TestPatternExincludeNextlineFunction {
-    @PatternExincludeNextline(message = "字符长度最多100", value = "^(.{0,100})?$")
+class TestPatternExcludeNextlineFunction {
+    @PatternExcludeNextline(message = "字符长度最多20", value = "^(.{0,20})?$")
     private String conSignee;
 }
 

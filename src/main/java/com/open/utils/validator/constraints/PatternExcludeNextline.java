@@ -1,6 +1,6 @@
 package com.open.utils.validator.constraints;
 
-import com.open.utils.validator.constraints.impl.PatternXNewlineConstraint;
+import com.open.utils.validator.constraints.impl.PatternExcludeNextlineConstraint;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -19,8 +19,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({FIELD})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = {PatternXNewlineConstraint.class})
-public @interface PatternExincludeNextline {
+@Constraint(validatedBy = {PatternExcludeNextlineConstraint.class})
+public @interface PatternExcludeNextline {
 
     /**
      * 校验失败的信息
