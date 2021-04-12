@@ -2,6 +2,7 @@ package com.open.utils.validator;
 
 import com.alibaba.fastjson.JSON;
 import com.open.utils.validator.constraints.PatternExincludeNextline;
+import com.open.utils.validator.constraints.TestPatternExincludeNextline;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Length;
@@ -16,7 +17,7 @@ import java.util.Map;
  * @createTime ：2021/1/7 17:12
  */
 @Slf4j
-public class ModelValidatorTest {
+public class TestModelValidator {
 
 
     /**
@@ -29,31 +30,7 @@ public class ModelValidatorTest {
         String[] erpCustomerIds = ModelValidator.getAnotherPropertyField(new AddAddressBO(), "erpCustomerId");
         System.out.println(JSON.toJSONString(erpCustomerIds));
     }
-
-    /**
-     * 测试 @PatternExincludeNextline  注解
-     */
-    @Test
-    public void testPatternExincludeNextline() {
-        TestPatternExincludeNextline model = new TestPatternExincludeNextline();
-        model.setConSignee("fsdfsdfsdfs\n22");
-        Map<String, String> map = ModelValidator.validatorModelParam(model);
-        log.info("result is :{}", JSON.toJSONString(map));
-        //PatternExincludeNextline
-    }
 }
-
-
-
-
-@Data
-class TestPatternExincludeNextline {
-    @PatternExincludeNextline(message = "dsfsdf", value = "^(.{0,100})?$")
-    private String conSignee;
-}
-
-
-
 
 
 class AddAddressBO {
