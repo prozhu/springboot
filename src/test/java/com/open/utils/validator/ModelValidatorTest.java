@@ -1,16 +1,21 @@
 package com.open.utils.validator;
 
 import com.alibaba.fastjson.JSON;
+import com.open.utils.validator.constraints.PatternExincludeNextline;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Length;
 import org.junit.Test;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Map;
 
 /**
  *ModelValidator 工具测试类
  * @author ：zc
  * @createTime ：2021/1/7 17:12
  */
+@Slf4j
 public class ModelValidatorTest {
 
 
@@ -24,12 +29,28 @@ public class ModelValidatorTest {
         String[] erpCustomerIds = ModelValidator.getAnotherPropertyField(new AddAddressBO(), "erpCustomerId");
         System.out.println(JSON.toJSONString(erpCustomerIds));
     }
+
+    /**
+     * 测试 @PatternExincludeNextline  注解
+     */
+    @Test
+    public void testPatternExincludeNextline() {
+        TestPatternExincludeNextline model = new TestPatternExincludeNextline();
+        model.setConSignee("fsdfsdfsdfs\n22");
+        Map<String, String> map = ModelValidator.validatorModelParam(model);
+        log.info("result is :{}", JSON.toJSONString(map));
+        //PatternExincludeNextline
+    }
 }
 
 
 
 
-
+@Data
+class TestPatternExincludeNextline {
+    @PatternExincludeNextline(message = "dsfsdf", value = "^(.{0,100})?$")
+    private String conSignee;
+}
 
 
 
@@ -46,6 +67,7 @@ class AddAddressBO {
      */
     @NotBlank(message = "收货人名称不能为空")
     @Length(min = 1, max = 30, message = "收货人名称最多30个字符")
+    @PatternExincludeNextline(message = "", value = "^(.{0,100})?$")
     private String conSignee;
     /**
      * 联系方式
