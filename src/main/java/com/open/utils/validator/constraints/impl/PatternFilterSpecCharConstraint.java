@@ -1,6 +1,7 @@
 package com.open.utils.validator.constraints.impl;
 
 import com.open.utils.validator.constraints.PatternExcludeNextline;
+import com.open.utils.validator.constraints.PatternFilterSpecChar;
 import org.springframework.util.StringUtils;
 
 import javax.validation.ConstraintValidator;
@@ -9,15 +10,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @PatternExcludeNextline 的实现类
- * @author ：zc
- * @createTime ：2021/4/8 16:42
+ * @PatternFilterSpecChar 的实现类
+ * @author zc
+ * @createTime 2021/4/12 18:40
  */
-public class PatternExcludeNextlineConstraint implements  ConstraintValidator<PatternExcludeNextline, String>{
+public class PatternFilterSpecCharConstraint implements ConstraintValidator<PatternFilterSpecChar, String> {
 
+    private String firstRegex;
     private String regex;
+
     @Override
-    public void initialize(PatternExcludeNextline constraintAnnotation) {
+    public void initialize(PatternFilterSpecChar constraintAnnotation) {
+        firstRegex = constraintAnnotation.filterRegex();
         regex = constraintAnnotation.value();
     }
 
@@ -26,9 +30,13 @@ public class PatternExcludeNextlineConstraint implements  ConstraintValidator<Pa
         if (StringUtils.isEmpty(value)) {
             return false;
         }
-        value = value.replaceAll("\n", "");
+        //首次正则表达式处理
+        if (!StringUtils.isEmpty(firstRegex)) {
+            value = value.replaceAll(firstRegex, "");
+        }
+        //第二次正则表达式处理
         Pattern compile = Pattern.compile(regex);
         Matcher matcher = compile.matcher(value);
-        return  matcher.matches();
+        return matcher.matches();
     }
 }
