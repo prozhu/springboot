@@ -1,6 +1,8 @@
 package com.open.fund;
 
 import com.open.utils.email.EmailManage;
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -11,6 +13,7 @@ import java.util.*;
  * @author ：zc
  * @createTime ：2021/2/2 14:00
  */
+@Slf4j
 public class FundServiceTest {
 
     /**
@@ -18,10 +21,15 @@ public class FundServiceTest {
      */
     @Test
     public void getFundIncomeTest() {
+        log.info("zc账号情况");
         FundService service = new FundService();
         List<FundModel> paramList = mapToList(fundMap);
         BigDecimal money = service.getFundIncome(paramList);
 //        EmailManage.sendSimpleEmail("fund remind通知", "这个邮件的详情" +money.toPlainString(), "496659989@qq.com");
+        log.info("other账号情况");
+        service = new FundService();
+        paramList = mapToList(otherFundMap);
+        money = service.getFundIncome(paramList);
     }
 
     /**
@@ -42,17 +50,25 @@ public class FundServiceTest {
     }
 
     private static HashMap<String, String> fundMap = new HashMap<>();
+    private static HashMap<String, String> otherFundMap = new HashMap<>();
+
     static {
-        fundMap.put("001102", "1300");
-        fundMap.put("002190", "3600");
+        fundMap.put("001102", "2300");
+        fundMap.put("002190", "4600");
         fundMap.put("160633", "5000");
-        fundMap.put("004854", "2000");
-        fundMap.put("160643", "4000");
+        fundMap.put("004854", "2500");
+        fundMap.put("160643", "5000");
         fundMap.put("001552", "2600");
        // fundMap.put("003096", "200");
-        fundMap.put("001513", "900");
-        fundMap.put("320007", "1800");
+        fundMap.put("001513", "1400");
+        fundMap.put("320007", "3100");
         fundMap.put("004856", "2000");
+
+        //其他账号情况
+        otherFundMap.put("160643", "2200");
+        otherFundMap.put("008949", "2500");
+        otherFundMap.put("005063", "1000");
+
     }
 
 
