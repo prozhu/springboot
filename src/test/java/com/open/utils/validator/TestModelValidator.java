@@ -1,6 +1,8 @@
 package com.open.utils.validator;
 
 import com.alibaba.fastjson.JSON;
+import com.open.utils.validator.constraints.PatternExcludeNextline;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Length;
 import org.junit.Test;
 
@@ -11,7 +13,8 @@ import javax.validation.constraints.NotBlank;
  * @author ：zc
  * @createTime ：2021/1/7 17:12
  */
-public class ModelValidatorTest {
+@Slf4j
+public class TestModelValidator {
 
 
     /**
@@ -27,14 +30,6 @@ public class ModelValidatorTest {
 }
 
 
-
-
-
-
-
-
-
-
 class AddAddressBO {
     /**
      * 外部供应商客户编号
@@ -46,6 +41,7 @@ class AddAddressBO {
      */
     @NotBlank(message = "收货人名称不能为空")
     @Length(min = 1, max = 30, message = "收货人名称最多30个字符")
+    @PatternExcludeNextline(message = "", value = "^(.{0,100})?$")
     private String conSignee;
     /**
      * 联系方式
