@@ -1,4 +1,4 @@
-package com.open.fix;
+package com.open.fix.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.open.fix.model.AdjustStockVo;
@@ -22,6 +22,13 @@ public class StockController extends BaseController {
 		StockService stockTest = new StockService();
 		AdjustStockVo data = stockTest.adjustStock(param);
 		return data;
+	}
+
+
+	@PostMapping("adjust/dingding.do")
+	public Object stock() throws  Exception{
+		int num = 1 / 0;
+		return null;
 	}
 
 }

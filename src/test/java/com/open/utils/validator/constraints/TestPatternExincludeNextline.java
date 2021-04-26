@@ -24,7 +24,7 @@ public class TestPatternExincludeNextline {
     @Test
     public void testPatternExincludeNextline() {
         TestPatternExcludeNextlineFunction model = new TestPatternExcludeNextlineFunction();
-        model.setConSignee("hello world ,hello all,\nhello java hello python");
+        model.setConSignee("  \r\n,hello all,\nhe\n\rpy\\r");
         Map<String, String> map = ModelValidator.validatorModelParam(model);
         log.info("result is :{}", JSON.toJSONString(map));
     }
