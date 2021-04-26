@@ -56,7 +56,7 @@ public class ExceptionLogAspect {
      * @param exception
      */
     @AfterThrowing(value = "pointCutService()", throwing = "exception")
-    public void doAfterThrowingAdvice(JoinPoint joinPoint, Throwable exception) {
+    public void doAfterThrowingAdvice(JoinPoint joinPoint, Exception exception) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentTime = format.format(new Date());
         try {
@@ -90,9 +90,6 @@ public class ExceptionLogAspect {
         StringWriter sw = new StringWriter();
         t.printStackTrace(new PrintWriter(sw, true));
         String result = sw.getBuffer().toString();
-//        if (result.length() > 400) {
-//            result = result.substring(0, 400) + ".....";
-//        }
         return result;
     }
 
