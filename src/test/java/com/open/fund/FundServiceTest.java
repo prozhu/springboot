@@ -57,17 +57,18 @@ public class FundServiceTest {
         fundMap.put("002190", "4600");
         fundMap.put("160633", "5000");
         fundMap.put("004854", "2500");
-        fundMap.put("160643", "5000");
-        fundMap.put("001552", "2600");
+        fundMap.put("160643", "5500");
+        fundMap.put("001552", "3100");
        // fundMap.put("003096", "200");
         fundMap.put("001513", "1400");
         fundMap.put("320007", "3100");
-        fundMap.put("004856", "2000");
+        fundMap.put("004856", "0");
 
         //其他账号情况
         otherFundMap.put("160643", "2200");
         otherFundMap.put("008949", "2500");
-        otherFundMap.put("005063", "1000");
+        otherFundMap.put("005063", "0");
+        otherFundMap.put("004997", "500");
 
     }
 
