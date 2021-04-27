@@ -35,8 +35,8 @@ public class DingTest {
     @Test
     public void testText() {
         String content = "hello Exception";
-        boolean atAll = false;
-        List<String> mobiles = Arrays.asList("15927294078");
+        boolean atAll = true;
+        List<String> mobiles = Arrays.asList("");
         DingParamBaseBo paramBo = new DingTextParamBo(content, atAll, mobiles);
         DingManage dingManage = new DingManage();
         dingManage.sendMsg(paramBo);

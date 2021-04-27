@@ -47,6 +47,7 @@ public class DingManage {
      * @return
      */
     private boolean sendTextMsg(DingTextParamBo param) {
+        log.info("钉钉推送参数为：{}", JSON.toJSONString(param));
         Map<String, Object> map = JSONObject.parseObject(JSON.toJSONString(param));
         JSONObject result = HttpUtils.sendPostRequest(serverUrl, map);
         log.info(result.toJSONString());

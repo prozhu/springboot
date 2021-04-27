@@ -10,5 +10,9 @@ import lombok.Data;
 @Data
 public abstract  class DingParamBaseBo {
 
+    /**
+     * 消息类型
+     * 文本 (text)、链接 (link)、markdown(markdown)、ActionCard、FeedCard消息类型
+     */
     private String msgtype;
 }

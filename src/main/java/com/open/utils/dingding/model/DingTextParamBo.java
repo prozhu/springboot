@@ -37,7 +37,7 @@ public class DingTextParamBo extends DingParamBaseBo {
         this.setMsgtype("text");
         if (!ObjectUtils.isEmpty(atAll)) {
             at = new AtBean();
-            at.setAtAll(atAll);
+            at.setIsAtAll(atAll);
             at.setAtMobiles(mobiles);
         }
         text = new TextBean();
@@ -52,10 +52,15 @@ public class DingTextParamBo extends DingParamBaseBo {
          * atUserIds  : ["user123"]
          * isAtAll  : false
          */
-
         private boolean isAtAll;
         private List<String> atMobiles;
         private List<String> atUserIds;
+        public boolean getIsAtAll() {
+            return this.isAtAll;
+        }
+        public void setIsAtAll(boolean isAtAll) {
+            this.isAtAll = isAtAll;
+        }
     }
 
     @NoArgsConstructor
