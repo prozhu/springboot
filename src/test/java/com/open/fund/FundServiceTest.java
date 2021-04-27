@@ -65,10 +65,10 @@ public class FundServiceTest {
         fundMap.put("004856", "0");
 
         //其他账号情况
-        otherFundMap.put("160643", "2200");
+        otherFundMap.put("160643", "2700");
         otherFundMap.put("008949", "2500");
         otherFundMap.put("005063", "0");
-        otherFundMap.put("004997", "500");
+        otherFundMap.put("004997", "1000");
 
     }
 

@@ -1,7 +1,7 @@
 package com.open.exceptions;
 
 import com.open.utils.dingding.DingManage;
-import com.open.utils.dingding.MsgTypeEnum;
+import com.open.utils.dingding.model.DingTextParamBo;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -73,8 +73,9 @@ public class ExceptionLogAspect {
             sb.append("异常: ").append(exception.toString()).append("\n");
             sb.append("详情: ").append(traceToString(exception));
             log.error("切面捕获抛出的异常，类名：【{}】-方法名：【{}】，异常：【{}】", signature.getDeclaringTypeName(), signature.getName(), exception.getLocalizedMessage());
-            //以下按需修改-todo
-            dingManage.sendMsg(MsgTypeEnum.text, sb.toString());
+            //以下按需修改
+            DingTextParamBo paramBo = new DingTextParamBo(sb.toString(), true, null);
+            dingManage.sendMsg(paramBo);
         } catch (Exception ex) {
             log.error("切面捕获抛出的异常失败，{}", ex);
         }

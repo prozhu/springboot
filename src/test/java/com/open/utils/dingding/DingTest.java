@@ -1,15 +1,22 @@
 package com.open.utils.dingding;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.api.DefaultDingTalkClient;
 import com.dingtalk.api.DingTalkClient;
 import com.dingtalk.api.request.OapiRobotSendRequest;
 import com.dingtalk.api.response.OapiRobotSendResponse;
+import com.open.utils.dingding.model.DingParamBaseBo;
+import com.open.utils.dingding.model.DingTextParamBo;
+import com.open.utils.http.HttpUtils;
 import com.taobao.api.ApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -19,17 +26,23 @@ import java.util.Arrays;
 @Slf4j
 public class DingTest {
 
-    private static final  String accessToken = "f2ed383f6bc103c1d8d0c605948b8e5bbf291fe4e5d1d69d9b3468ac1e696a6b";
+    private static final String accessToken = "f2ed383f6bc103c1d8d0c605948b8e5bbf291fe4e5d1d69d9b3468ac1e696a6b";
 
     private static final String serverUrl = "https://oapi.dingtalk.com/robot/send?access_token=" + accessToken;
 
 
 
     @Test
-    public void testText() throws ApiException {
-        DingManage ding = new DingManage();
-        ding.sendMsg(MsgTypeEnum.text, "测试文本预警消息");
+    public void testText() {
+        String content = "hello Exception";
+        boolean atAll = false;
+        List<String> mobiles = Arrays.asList("15927294078");
+        DingParamBaseBo paramBo = new DingTextParamBo(content, atAll, mobiles);
+        DingManage dingManage = new DingManage();
+        dingManage.sendMsg(paramBo);
     }
+
+
 
     @Test
     public void testOne() throws ApiException {
@@ -61,7 +74,7 @@ public class DingTest {
         markdown.setTitle("杭州天气");
         markdown.setText("#### 杭州天气预警 @156xxxx8827\n" +
                 "> 9度，西北风1级，空气良89，相对温度73%\n\n" +
-                "> ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n"  +
+                "> ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n" +
                 "> ###### 10点20分发布 [天气](http://www.thinkpage.cn/) \n");
         request.setMarkdown(markdown);
         OapiRobotSendResponse response = client.execute(request);
