@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,7 +23,12 @@ public class HttpUtils {
      * @return
      */
     private static RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
+        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        //设置超时时间
+        factory.setConnectTimeout(6000);
+        //设置响应时间
+        factory.setReadTimeout(2000);
+        RestTemplate restTemplate = new RestTemplate(factory);
         restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;
     }
@@ -33,7 +39,7 @@ public class HttpUtils {
      * @return
      */
     public static String sendGet(String url) {
-        RestTemplate restTemplate =  restTemplate();
+        RestTemplate restTemplate = restTemplate();
         ResponseEntity responseEntity = restTemplate.getForEntity(url, String.class);
         return responseEntity.getBody().toString();
     }
@@ -46,7 +52,7 @@ public class HttpUtils {
      * @return
      */
     public static JSONObject sendPostRequest(String url, Map params) {
-        RestTemplate client =new RestTemplate();
+        RestTemplate client = new RestTemplate();
         return client.postForEntity(url, params, JSONObject.class).getBody();
     }
 }
