@@ -2,10 +2,12 @@ package com.open.utils.dingding;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.open.utils.dingding.model.DingMarkdownParamBo;
 import com.open.utils.dingding.model.DingParamBaseBo;
 import com.open.utils.dingding.model.DingTextParamBo;
 import com.open.utils.http.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -17,7 +19,7 @@ import java.util.Objects;
  * @createTime ：2021/4/25 15:14
  */
 @Slf4j
-@Service
+@Component
 public class DingManage {
 
     /**
@@ -33,12 +35,37 @@ public class DingManage {
      * @return
      */
     public boolean sendMsg(DingParamBaseBo param) {
+        log.info("钉钉推送参数为：{}", JSON.toJSONString(param));
         String msgType = param.getMsgtype();
         switch (msgType) {
             case "text":
                 return sendTextMsg((DingTextParamBo) param);
+            case "markdown":
+                return sendMarkdownMsg((DingMarkdownParamBo) param);
         }
         return true;
+    }
+
+
+    /**
+     * 发送markdown消息
+     * @param param
+     * @return
+     */
+    private boolean sendMarkdownMsg(DingMarkdownParamBo param) {
+        JSONObject result = sendRequest(param);
+        log.info(result.toJSONString());
+        if (!Objects.equals("ok", result.getString("errmsg"))) {
+            log.error("钉钉推送异常{}", result.getString("errmsg"));
+            return false;
+        }
+        return true;
+    }
+
+    private JSONObject sendRequest(DingParamBaseBo param) {
+        Map<String, Object> map = JSONObject.parseObject(JSON.toJSONString(param));
+        JSONObject result = HttpUtils.sendPostRequest(serverUrl, map);
+        return result;
     }
 
     /**
@@ -47,9 +74,7 @@ public class DingManage {
      * @return
      */
     private boolean sendTextMsg(DingTextParamBo param) {
-        log.info("钉钉推送参数为：{}", JSON.toJSONString(param));
-        Map<String, Object> map = JSONObject.parseObject(JSON.toJSONString(param));
-        JSONObject result = HttpUtils.sendPostRequest(serverUrl, map);
+        JSONObject result = sendRequest(param);
         log.info(result.toJSONString());
         if (!Objects.equals("ok", result.getString("errmsg"))) {
             log.error("钉钉推送异常{}", result.getString("errmsg"));
