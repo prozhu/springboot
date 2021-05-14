@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.open.utils.http.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import org.springframework.util.ObjectUtils;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -58,7 +59,7 @@ public class FundService {
      */
     private String sendGet(String fundCode) {
         String url = "http://fundgz.1234567.com.cn/js/" + fundCode + ".js?rt=1463558676006";
-        return HttpUtils.sendGet(url).toString();
+        return HttpUtils.sendGet(url);
     }
 
     /**
@@ -72,8 +73,12 @@ public class FundService {
         JSONObject jsonObject = JSON.parseObject(replaceResult);
         FundVO fund = new FundVO();
         fund.setCode(fundCode);
-        fund.setGszzl(jsonObject.getBigDecimal("gszzl"));
-        fund.setName(jsonObject.getString("name"));
+        if (!ObjectUtils.isEmpty(jsonObject)) {
+            fund.setGszzl(jsonObject.getBigDecimal("gszzl"));
+            fund.setName(jsonObject.getString("name"));
+        } else{
+            log.info("查询基金信息异常{}", fundCode);
+        }
         return fund;
     }
 

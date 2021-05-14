@@ -40,10 +40,22 @@ public class HttpUtils {
      */
     public static String sendGet(String url) {
         RestTemplate restTemplate = restTemplate();
-        ResponseEntity responseEntity = restTemplate.getForEntity(url, String.class);
-        return responseEntity.getBody().toString();
+        ResponseEntity<String> forEntity = restTemplate.getForEntity(url, String.class);
+        return forEntity.getBody().toString();
     }
 
+
+    /**
+     * 发送Get 请求（带请求参数）
+     * @param url 请求路径
+     * @param param 传参
+     * @return
+     */
+    public static JSONObject sendGet(String url, Map<String, Object> param) {
+        RestTemplate restTemplate = restTemplate();
+        JSONObject result = restTemplate.getForObject(url, JSONObject.class, param);
+        return result;
+    }
 
     /**
      * 发送post请求
