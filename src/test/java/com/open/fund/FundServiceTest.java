@@ -53,23 +53,18 @@ public class FundServiceTest {
     private static HashMap<String, String> otherFundMap = new HashMap<>();
 
     static {
-        fundMap.put("001102", "2300");
-        fundMap.put("002190", "5100");
-        fundMap.put("160633", "5500");
-        fundMap.put("004854", "3500");
-        fundMap.put("160643", "6500");
-        fundMap.put("001552", "4600");
-       // fundMap.put("003096", "200");
-        fundMap.put("001513", "1900");
-        fundMap.put("320007", "4100");
-        fundMap.put("004856", "0");
-        fundMap.put("005312", "1000");
+        fundMap.put("160633", "7000");
+        fundMap.put("001552", "7000");
+        fundMap.put("004856", "2000");
+        fundMap.put("001027", "3000");
+
 
         //其他账号情况
-        otherFundMap.put("160643", "3700");
-        otherFundMap.put("008949", "2500");
-        otherFundMap.put("167301", "1500");
-        otherFundMap.put("004997", "1500");
+        otherFundMap.put("167301", "8500");
+        otherFundMap.put("004997", "3000");
+        otherFundMap.put("001552", "2000");
+        otherFundMap.put("005063", "3500");
+
 
     }
 

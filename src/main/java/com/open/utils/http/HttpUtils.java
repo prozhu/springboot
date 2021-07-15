@@ -19,7 +19,7 @@ import java.util.Map;
 public class HttpUtils {
 
     /**
-     *  获取restTemplate
+     * 获取restTemplate
      * @return
      */
     private static RestTemplate restTemplate() {
@@ -35,7 +35,7 @@ public class HttpUtils {
 
     /**
      * 发送Get 请求（不带请求参数）
-     * @param url
+     * @param url 请求路径
      * @return
      */
     public static String sendGet(String url) {
@@ -47,24 +47,32 @@ public class HttpUtils {
 
     /**
      * 发送Get 请求（带请求参数）
-     * @param url 请求路径
+     * @param url   请求路径
      * @param param 传参
      * @return
      */
-    public static JSONObject sendGet(String url, Map<String, Object> param) {
+    public static String sendGet(String url, Map<String, Object> param) {
         RestTemplate restTemplate = restTemplate();
-        JSONObject result = restTemplate.getForObject(url, JSONObject.class, param);
-        return result;
+        return restTemplate.getForObject(url, String.class, param);
     }
 
     /**
      * 发送post请求
-     * @param url
-     * @param params
+     * @param url   请求路径
+     * @param param 传参
      * @return
      */
-    public static JSONObject sendPostRequest(String url, Map params) {
+    public static String sendPostRequest(String url, Map param) {
         RestTemplate client = new RestTemplate();
-        return client.postForEntity(url, params, JSONObject.class).getBody();
+        return client.postForEntity(url, param, String.class).getBody();
+    }
+
+    /**
+     * 发送post请求(不带参数)
+     * @param url 请求路径
+     * @return
+     */
+    public static String sendPostRequest(String url) {
+        return sendPostRequest(url, null);
     }
 }

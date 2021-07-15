@@ -34,6 +34,7 @@
             </exclusions>
         </dependency>
 
+
         <!-- 测试模块，包括JUnit、Hamcrest、Mockito。 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -93,6 +94,7 @@
             <artifactId>log4j-core</artifactId>
         </dependency>
 
+
         <!--钉钉开发工具包-->
         <!--		<dependency>
                     <groupId>net.guerlab.smart.dingtalk</groupId>
@@ -139,7 +141,6 @@
             <artifactId>guava</artifactId>
             <version>29.0-jre</version>
         </dependency>
-
 
 
         <!-- jedis -->

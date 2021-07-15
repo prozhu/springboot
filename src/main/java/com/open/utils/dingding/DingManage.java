@@ -64,8 +64,8 @@ public class DingManage {
 
     private JSONObject sendRequest(DingParamBaseBo param) {
         Map<String, Object> map = JSONObject.parseObject(JSON.toJSONString(param));
-        JSONObject result = HttpUtils.sendPostRequest(serverUrl, map);
-        return result;
+        String result = HttpUtils.sendPostRequest(serverUrl, map);
+        return JSON.parseObject(result);
     }
 
     /**
