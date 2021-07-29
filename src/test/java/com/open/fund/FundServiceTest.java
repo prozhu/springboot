@@ -16,6 +16,11 @@ import java.util.*;
 @Slf4j
 public class FundServiceTest {
 
+    private static HashMap<String, String> fundMap = new HashMap<>();
+    private static HashMap<String, String> otherFundMap = new HashMap<>();
+    private static HashMap<String, String> wxFundMap = new HashMap<>();
+
+
     /**
      * 获取今日基金收益
      */
@@ -29,7 +34,13 @@ public class FundServiceTest {
         log.info("other账号情况");
         service = new FundService();
         paramList = mapToList(otherFundMap);
-        money = service.getFundIncome(paramList);
+        BigDecimal money2 = service.getFundIncome(paramList);
+
+        log.info("微信账号情况");
+        service = new FundService();
+        paramList = mapToList(wxFundMap);
+        BigDecimal money3 = service.getFundIncome(paramList);
+        log.info("make money: {} ", money.add(money2).add(money3));
     }
 
     /**
@@ -49,21 +60,26 @@ public class FundServiceTest {
         return paramList;
     }
 
-    private static HashMap<String, String> fundMap = new HashMap<>();
-    private static HashMap<String, String> otherFundMap = new HashMap<>();
 
     static {
         fundMap.put("160633", "7000");
         fundMap.put("001552", "7000");
-        fundMap.put("004856", "2000");
-        fundMap.put("001027", "3000");
+        fundMap.put("004856", "4000");
+        fundMap.put("001027", "4500");
+        fundMap.put("260101", "500");
+        fundMap.put("000522", "500");
+        fundMap.put("161005", "1500");
 
 
         //其他账号情况
-        otherFundMap.put("167301", "8500");
+        otherFundMap.put("167301", "9500");
         otherFundMap.put("004997", "3000");
         otherFundMap.put("001552", "2000");
-        otherFundMap.put("005063", "3500");
+        otherFundMap.put("005063", "6500");
+
+        //微信
+        wxFundMap.put("005063", "4000");
+        wxFundMap.put("001027", "3000");
 
 
     }
