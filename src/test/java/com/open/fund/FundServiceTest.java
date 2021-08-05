@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 import java.util.*;
 
 /**
- *
  * @author ：zc
  * @createTime ：2021/2/2 14:00
  */
@@ -62,20 +61,20 @@ public class FundServiceTest {
 
 
     static {
-        fundMap.put("160633", "7000");
-        fundMap.put("001552", "7000");
+        fundMap.put("160633", "8000");
+        fundMap.put("001552", "8000");
         fundMap.put("004856", "4000");
         fundMap.put("001027", "4500");
         fundMap.put("260101", "500");
-        fundMap.put("000522", "500");
+//        fundMap.put("000522", "500");
         fundMap.put("161005", "1500");
 
 
         //其他账号情况
         otherFundMap.put("167301", "9500");
         otherFundMap.put("004997", "3000");
-        otherFundMap.put("001552", "2000");
-        otherFundMap.put("005063", "6500");
+        otherFundMap.put("001552", "4000");
+        otherFundMap.put("005063", "8500");
 
         //微信
         wxFundMap.put("005063", "4000");
