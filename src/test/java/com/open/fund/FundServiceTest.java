@@ -61,23 +61,24 @@ public class FundServiceTest {
 
 
     static {
-        fundMap.put("160633", "8000");
-        fundMap.put("001552", "8000");
-        fundMap.put("004856", "4000");
-        fundMap.put("001027", "4500");
+        fundMap.put("004856", "0");
+        fundMap.put("001027", "5000");
+        fundMap.put("000522", "3500");
+        fundMap.put("161005", "3000");
+        fundMap.put("003096", "3500");
+        fundMap.put("001631", "3000");
         fundMap.put("260101", "500");
-//        fundMap.put("000522", "500");
-        fundMap.put("161005", "1500");
 
 
         //其他账号情况
-        otherFundMap.put("167301", "9500");
-        otherFundMap.put("004997", "3000");
-        otherFundMap.put("001552", "4000");
-        otherFundMap.put("005063", "8500");
+        otherFundMap.put("160643", "1000");
+        otherFundMap.put("167301", "4700");
+        otherFundMap.put("005063", "13500");
+        otherFundMap.put("008949", "4000");
+        otherFundMap.put("001102", "4500");
 
         //微信
-        wxFundMap.put("005063", "4000");
+        wxFundMap.put("005063", "5500");
         wxFundMap.put("001027", "3000");
 
 

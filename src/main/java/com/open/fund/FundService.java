@@ -100,7 +100,7 @@ public class FundService {
             BigDecimal initialMoney = new BigDecimal(fundMap.get(code));
             //计算利润
             BigDecimal multiply = initialMoney.multiply((fund.getGszzl().divide(new BigDecimal("100"))));
-            log.info("{}({}) , 利润为：{}", fund.getName(), fund.getCode(), multiply.setScale(2).toPlainString());
+            log.info("{}({}) , 利润为：{}, 利率：{}", fund.getName(), fund.getCode(), multiply.setScale(2).toPlainString(), fund.getGszzl());
             //累加利润
             money = money.add(multiply);
         }
