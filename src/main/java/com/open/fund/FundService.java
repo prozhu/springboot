@@ -52,6 +52,31 @@ public class FundService {
     }
 
 
+    public List<FundModel> getFundIncome2(List<FundModel> paramList) {
+        BigDecimal totalMoney = BigDecimal.ZERO;
+        BigDecimal todayMoney = BigDecimal.ZERO;
+
+        if (paramList.isEmpty()) {
+            return paramList;
+        }
+        //存储基金的数据，格式为：code，基金详情模型
+        HashMap<String, FundVO> resultMap = new HashMap<String, FundVO>();
+        //1. 遍历调用paramList
+        for (FundModel temp : paramList) {
+            String code = temp.getCode();
+            FundVO fund  = calculateAndSend(code);
+            temp.setGszzl(fund.getGszzl());
+            temp.setName(fund.getName());
+            totalMoney = totalMoney.add(new BigDecimal(temp.getInvestMoney()));
+            todayMoney = todayMoney.add(temp.getMoney());
+        }
+        //2. 计算
+        log.info("今日利润：{}", todayMoney);
+        log.info("投资总额：{}", totalMoney);
+        return paramList;
+    }
+
+
     /**
      * 获取基金预估收益率
      * @param fundCode 基金code
