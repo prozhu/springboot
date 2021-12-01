@@ -1,14 +1,11 @@
-package com.open.thread.one;
+package com.open.thread;
 
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.ObjectUtils;
 
-import java.io.FileInputStream;
-import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * 多核场景下的“变量”可见性
@@ -66,8 +63,30 @@ public class Test {
         }
     }
 
+
+    /**
+     * 根据身份证判断性别
+     * @param idCard 身份证
+     * @return  0-男性，1-女性
+     */
+    private Integer judgeSexByIdCard(String idCard) {
+        //身份证号的第17位数字，奇数为男性，偶数为女性
+        String value = idCard.substring(16).substring(0, 1);
+        if (Objects.equals(value, "X")) {
+            return 1;
+        }
+        if ((Integer.valueOf(value) & 1) == 1) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+
+    @org.junit.Test
     public void testGC() throws Exception{
-        FileInputStream fileInputStream = new FileInputStream("");
+        Integer value = judgeSexByIdCard("420117199505100835");
+        log.info(value + "");
     }
 
     @org.junit.Test
@@ -81,6 +100,22 @@ public class Test {
         } catch (ParseException ex) {
 
         }
+    }
+
+    /**
+     * 集合分页
+     */
+    @org.junit.Test
+    public void testPartition() {
+        List<String> ids = Arrays.asList("1", "2", "2", "2", "2", "2", "2");
+        List<List<String>> partition = Lists.partition(ids, 2);
+        partition.forEach(e -> {
+            e.forEach(t -> {
+                log.info(t);
+            });
+            log.info("...........");
+        });
+
     }
 
 }
