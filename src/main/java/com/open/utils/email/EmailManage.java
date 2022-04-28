@@ -30,4 +30,9 @@ public class EmailManage {
         log.info("邮件发送成功");
         return true;
     }
+
+    @Test
+    public void test() {
+        sendSimpleEmail("title", "content", "496659989@qq.com");
+    }
 }

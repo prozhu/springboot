@@ -25,10 +25,10 @@ public class DingManage {
     /**
      * 钉钉webhook
      */
-    private static final String accessToken = "f2ed383f6bc103c1d8d0c605948b8e5bbf291fe4e5d1d69d9b3468ac1e696a6b";
+    private static final String accessToken = "e023be02595f6a5545fb934b4a264be903d94d239a0dcfffbd6aa5b73fb312f5";
     private static final String serverUrl = "https://oapi.dingtalk.com/robot/send?access_token=" + accessToken;
 
-
+    //https://oapi.dingtalk.com/robot/send?access_token=e023be02595f6a5545fb934b4a264be903d94d239a0dcfffbd6aa5b73fb312f5
     /**
      *  钉钉推送
      * @param param

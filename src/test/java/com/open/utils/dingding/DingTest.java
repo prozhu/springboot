@@ -19,16 +19,11 @@ import java.util.function.BiFunction;
 @Slf4j
 public class DingTest {
 
-    private static final String accessToken = "f2ed383f6bc103c1d8d0c605948b8e5bbf291fe4e5d1d69d9b3468ac1e696a6b";
-
-    private static final String serverUrl = "https://oapi.dingtalk.com/robot/send?access_token=" + accessToken;
-
-
     @Test
     public void testText() {
-        String content = "hello Exception";
-        boolean atAll = true;
-        List<String> mobiles = Arrays.asList("");
+        String content = "#hello Exception";
+        boolean atAll = false;
+        List<String> mobiles = Arrays.asList("15927294078");
         DingParamBaseBo paramBo = new DingTextParamBo(content, atAll, mobiles);
         DingManage dingManage = new DingManage();
         dingManage.sendMsg(paramBo);
