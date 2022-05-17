@@ -1,14 +1,1 @@
-15:23:33.949 INFO  com.open.fund.FundServiceTest 24 getFundIncomeTest - zc账号情况
-15:23:35.032 INFO  com.open.fund.FundService 103 calculateFund - 广发中证全指建筑材料指数A(004856) , 利润为：6.20
-15:23:35.032 INFO  com.open.fund.FundService 103 calculateFund - 前海开源中证大农业指数增强(001027) , 利润为：-6.60
-15:23:35.032 INFO  com.open.fund.FundService 103 calculateFund - 天弘中证证券保险A(001552) , 利润为：126.00
-15:23:35.032 INFO  com.open.fund.FundService 103 calculateFund - 鹏华券商A(160633) , 利润为：91.00
-15:23:35.032 INFO  com.open.fund.FundService 49 getFundIncome - 今日利润：216.60
-15:23:35.032 INFO  com.open.fund.FundService 50 getFundIncome - 投资总额：19000
-15:23:35.032 INFO  com.open.fund.FundServiceTest 29 getFundIncomeTest - other账号情况
-15:23:35.220 INFO  com.open.fund.FundService 103 calculateFund - 方正富邦保险主题指数(167301) , 利润为：228.65
-15:23:35.220 INFO  com.open.fund.FundService 103 calculateFund - 天弘中证证券保险A(001552) , 利润为：36.00
-15:23:35.220 INFO  com.open.fund.FundService 103 calculateFund - 广发高端制造股票A(004997) , 利润为：33.00
-15:23:35.220 INFO  com.open.fund.FundService 103 calculateFund - 广发中证全指家用电器指数A(005063) , 利润为：21.00
-15:23:35.220 INFO  com.open.fund.FundService 49 getFundIncome - 今日利润：318.65
-15:23:35.220 INFO  com.open.fund.FundService 50 getFundIncome - 投资总额：17000
+09:55:05.654 INFO  com.open.utils.email.EmailManage 30 sendSimpleEmail - 邮件发送成功

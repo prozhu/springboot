@@ -62,6 +62,14 @@ public class DingManage {
         return true;
     }
 
+
+    /**
+     * 发送http 请求
+     * @author zhucheng
+     * @date 2022/5/17 10:27
+     * @param param
+     * @return com.alibaba.fastjson.JSONObject
+    */
     private JSONObject sendRequest(DingParamBaseBo param) {
         Map<String, Object> map = JSONObject.parseObject(JSON.toJSONString(param));
         String result = HttpUtils.sendPostRequest(serverUrl, map);
