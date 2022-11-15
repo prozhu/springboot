@@ -3,6 +3,10 @@ package com.open.gc;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 @Slf4j
 public class GCTest {
 
@@ -70,7 +74,17 @@ public class GCTest {
 
 
 
+    @Test
+    public void test2222() {
+        Map<String, String> confirmStateMap = new HashMap<>();
+        confirmStateMap.put("0", "未对账");
+        confirmStateMap.put("1", "对账成功");
+        confirmStateMap.put("2", "对账失败");
 
+        String name = null;
+        String value = confirmStateMap.getOrDefault(name, "222");
+        System.out.println(value);
+    }
 
 
 
