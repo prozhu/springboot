@@ -48,7 +48,7 @@ public class DynamicEasyExcelExportUtils {
 
     /**
      * 动态生成模版(复杂表头)
-     * @param excelHead   列名称
+     * @param excelHead 列名称
      * @return
      */
     public static byte[] exportTemplateExcelFileCustomHead(List<List<String>> excelHead) {
@@ -58,8 +58,8 @@ public class DynamicEasyExcelExportUtils {
 
     /**
      * 动态导出文件
-     * @param headColumnMap  有序列头部
-     * @param dataList       数据体
+     * @param headColumnMap 有序列头部
+     * @param dataList      数据体
      * @return
      */
     public static byte[] exportExcelFile(LinkedHashMap<String, String> headColumnMap, List<Map<String, Object>> dataList) {
@@ -119,8 +119,10 @@ public class DynamicEasyExcelExportUtils {
         //导出包含数据内容的文件
         LinkedHashMap<String, String> headColumnMap = Maps.newLinkedHashMap();
         headColumnMap.put("className", "班级");
-        headColumnMap.put("name", "学生信息,姓名");
-        headColumnMap.put("sex", "学生信息,性别");
+        headColumnMap.put("name", "姓名");
+        headColumnMap.put("sex", "性别");
+//        headColumnMap.put("name", "学生信息,姓名");
+//        headColumnMap.put("sex", "学生信息,性别");
         List<Map<String, Object>> dataList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             Map<String, Object> dataMap = Maps.newHashMap();
@@ -130,7 +132,7 @@ public class DynamicEasyExcelExportUtils {
             dataList.add(dataMap);
         }
         byte[] stream = exportExcelFile(headColumnMap, dataList);
-        FileOutputStream outputStream = new FileOutputStream(new File("C:/Users/djzc/Downloads/Programs/easyexcel-export-user5.xlsx"));
+        FileOutputStream outputStream = new FileOutputStream(new File("D:/export/test.xlsx"));
         outputStream.write(stream);
         outputStream.close();
     }

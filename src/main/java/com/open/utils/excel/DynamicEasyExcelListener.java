@@ -32,7 +32,6 @@ public class DynamicEasyExcelListener extends AnalysisEventListener<Map<Integer,
 
     /**
      * 这里会一行行的返回头
-     *
      * @param headMap
      * @param context
      */
@@ -45,9 +44,7 @@ public class DynamicEasyExcelListener extends AnalysisEventListener<Map<Integer,
 
     /**
      * 这个每一条数据解析都会来调用
-     *
-     * @param data
-     *            one row value. Is is same as {@link AnalysisContext#readRowHolder()}
+     * @param data    one row value. Is is same as {@link AnalysisContext#readRowHolder()}
      * @param context
      */
     @Override
@@ -58,13 +55,13 @@ public class DynamicEasyExcelListener extends AnalysisEventListener<Map<Integer,
 
     /**
      * 所有数据解析完成了 都会来调用
-     *
      * @param context
      */
     @Override
     public void doAfterAllAnalysed(AnalysisContext context) {
         // 这里也要保存数据，确保最后遗留的数据也存储到数据库
         LOGGER.info("所有数据解析完成！");
+        dataList.clear();
     }
 
     public List<Map<Integer, String>> getHeadList() {
