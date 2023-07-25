@@ -12,18 +12,18 @@ public class ListUtils {
 
     /**
      * 平均拆分list方法
-     * @param source
-     * @param n
+     * @param source 原始list集合
+     * @param n 拆成几个list
      * @param <T>
-     * @return  n = 10
+     * @return
      */
     public static <T> List<List<T>> averageAssign(List<T> source, int n) {
         List<List<T>> result = new ArrayList<List<T>>();
         //余数
         int remainder = source.size() % n;
         int number = source.size() / n;
-        int offset = 0;
         //偏移量
+        int offset = 0;
         for (int i = 0; i < n; i++) {
             List<T> value = null;
             if (remainder > 0) {
