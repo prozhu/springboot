@@ -1,6 +1,7 @@
 
 package com.zc.springboot;
 
+import com.open.utils.list.ListUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 import com.zc.springboot.controller.demo1.HelloController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -63,6 +67,16 @@ public class SpringbootApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		List<String> list = new ArrayList<>(10);
+		for (int i = 0; i < 10; i++) {
+			list.add(String.valueOf(i));
+		}
+		List<List<String>> lists = ListUtils.averageAssign(list, 3);
+		for (int i = 0; i < lists.size(); i++) {
+			System.out.println(lists.get(i));
+		}
+
+
 	}
 
 }
