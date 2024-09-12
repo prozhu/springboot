@@ -1,0 +1,55 @@
+17:45:39.422 INFO  org.springframework.core.KotlinDetector 57 <clinit> - Kotlin reflection implementation not found at runtime, related features won't be available.
+17:45:39.742 INFO  org.springframework.boot.StartupInfoLogger 50 logStarting - Starting SpringbootApplication on DESKTOP-OC5AFVB with PID 14368 (C:\Users\Administrator\IdeaProjects\springboot\target\classes started by Administrator in C:\Users\Administrator\IdeaProjects\springboot)
+17:45:39.744 INFO  org.springframework.boot.SpringApplication 675 logStartupProfileInfo - No active profile set, falling back to default profiles: default
+17:45:39.795 INFO  org.springframework.boot.logging.DeferredLog 227 logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:45:39.795 INFO  org.springframework.boot.logging.DeferredLog 227 logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17:45:39.842 WARN  org.springframework.core.log.CompositeLog 122 warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+17:45:41.967 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 244 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode!
+17:45:41.969 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 126 registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+17:45:41.990 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 182 registerRepositoriesIn - Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+17:45:42.000 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 244 multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode!
+17:45:42.001 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 126 registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+17:45:42.011 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate 182 registerRepositoriesIn - Finished Spring Data repository scanning in 3ms. Found 0 repository interfaces.
+17:45:42.459 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 330 postProcessAfterInitialization - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$1e59e1a6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+17:45:42.560 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 330 postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$57ee2378] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+17:45:42.813 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 330 postProcessAfterInitialization - Bean 'redisConfig' of type [com.zc.springboot.config.RedisConfig$$EnhancerBySpringCGLIB$$771c8245] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+17:45:43.213 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 90 initialize - Tomcat initialized with port(s): 8082 (http)
+17:45:43.223 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing ProtocolHandler ["http-nio-8082"]
+17:45:43.229 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+17:45:43.230 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet Engine: Apache Tomcat/9.0.13
+17:45:43.235 INFO  org.apache.juli.logging.DirectJDKLog 173 log - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [H:\Program Files\Java\jdk1.8.0_221\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;H:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;H:\Program Files (x86)\NetSarang\Xshell 7\;C:\Program Files\Git\cmd;H:\Program Files\Java\jdk1.8.0_221\bin;H:\Program Files\Java\jdk1.8.0_221\jre\bin;H:\Program Files (x86)\NetSarang\Xftp 7\;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;H:\Program Files\Microsoft VS Code\bin;H:\Program Files\JetBrains\IntelliJ IDEA 2022.3\bin;;H:\Program Files\MySQL\MySQL Server 8.0\bin;H:\Program Files\cpolar\;.]
+17:45:43.322 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+17:45:43.322 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 296 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 3527 ms
+17:45:43.632 INFO  org.redisson.Version 41 logVersion - Redisson 3.15.5
+17:45:44.205 INFO  org.redisson.connection.pool.ConnectionPool$1 166 lambda$run$0 - 1 connections initialized for /192.168.214.200:6379
+17:45:44.217 INFO  org.redisson.connection.pool.ConnectionPool$1 166 lambda$run$0 - 24 connections initialized for /192.168.214.200:6379
+17:45:44.674 INFO  com.zaxxer.hikari.HikariDataSource 110 getConnection - HikariPool-1 - Starting...
+17:45:45.042 INFO  com.zaxxer.hikari.HikariDataSource 123 getConnection - HikariPool-1 - Start completed.
+17:45:45.081 INFO  org.hibernate.jpa.internal.util.LogHelper 31 logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+17:45:45.128 INFO  org.hibernate.Version 46 logVersion - HHH000412: Hibernate Core {5.3.7.Final}
+17:45:45.129 INFO  org.hibernate.cfg.Environment 213 <clinit> - HHH000206: hibernate.properties not found
+17:45:45.236 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager 49 <clinit> - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+17:45:45.523 INFO  org.hibernate.dialect.Dialect 157 <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+17:45:45.695 INFO  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean 415 buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:45:45.748 INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer 57 startServer - LiveReload server is running on port 35729
+17:45:45.831 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration 234 openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:45:46.035 INFO  com.zc.springboot.config.RedisConfig 57 redisPoolFactory - JedisPool注入成功！
+17:45:46.035 INFO  com.zc.springboot.config.RedisConfig 58 redisPoolFactory - redis地址：192.168.214.200:6379
+17:45:46.734 INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver 59 <init> - Exposing 2 endpoint(s) beneath base path '/actuator'
+17:45:46.831 INFO  org.springframework.amqp.rabbit.connection.AbstractConnectionFactory 468 createBareConnection - Attempting to connect to: 192.168.214.200:5672
+17:45:46.857 INFO  org.springframework.amqp.rabbit.connection.AbstractConnectionFactory 496 createBareConnection - Created new connection: connectionFactory#322ed0ef:0/SimpleConnection@40784596 [delegate=amqp://admin@192.168.214.200:5672/, localPort= 1789]
+17:45:46.918 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting ProtocolHandler ["http-nio-8082"]
+17:45:46.919 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Using a shared selector for servlet write/read
+17:45:46.932 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 204 start - Tomcat started on port(s): 8082 (http) with context path '/springboot'
+17:45:46.934 INFO  org.springframework.boot.StartupInfoLogger 59 logStarted - Started SpringbootApplication in 7.421 seconds (JVM running for 9.278)
+17:45:47.145 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:45:47.145 INFO  org.springframework.web.servlet.FrameworkServlet 524 initServletBean - Initializing Servlet 'dispatcherServlet'
+17:45:47.158 INFO  org.springframework.web.servlet.FrameworkServlet 546 initServletBean - Completed initialization in 13 ms
+17:51:37.094 INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer 565 doShutdown - Waiting for workers to finish.
+17:51:37.270 INFO  org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer 568 doShutdown - Successfully waited for workers to finish.
+17:51:37.275 INFO  org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer 1190 shutdown - Shutdown ignored - container is not active already
+17:51:37.301 INFO  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean 597 destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:51:37.304 INFO  com.zaxxer.hikari.HikariDataSource 350 close - HikariPool-1 - Shutdown initiated...
+17:51:37.313 INFO  com.zaxxer.hikari.HikariDataSource 352 close - HikariPool-1 - Shutdown completed.
