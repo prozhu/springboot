@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import javax.annotation.Resource;
+
 /**
  * redis 封装的工具类
  * @author ：djzc
@@ -15,7 +17,7 @@ import redis.clients.jedis.JedisPool;
  */
 //@Service("redis")
 public class RedisUtil {
-	@Autowired
+	@Resource
 	private JedisPool jedisPool;
 
 	/**

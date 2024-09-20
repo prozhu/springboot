@@ -1,8 +1,10 @@
 package com.zc.springboot.controller.demo1;
 
 import com.open.annotation.AccessLimit;
+import com.open.annotation.RepeatSubmit;
 import com.open.response.Result;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.TimeUnit;
@@ -26,4 +28,12 @@ public class InterfaceLimitController {
     public Result getUser() {
         return Result.success(new String[]{"1", "2"});
     }
+
+
+    @PostMapping("saveUser")
+    @RepeatSubmit(limitType = RepeatSubmit.Type.PARAM,lockTime = 5,timeUnit = TimeUnit.SECONDS,preKey = "saveUser",msg = "请求重复提交")
+    public Result saveUser() {
+        return Result.success("成功保存");
+    }
+
 }

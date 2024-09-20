@@ -1,6 +1,7 @@
 package com.open.annotation;
 
 import java.lang.annotation.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 限制重复提交的注解
@@ -23,6 +24,11 @@ public @interface RepeatSubmit {
     Type limitType() default Type.PARAM;
 
     /**
+     * 时间单位,默认为秒
+     */
+    TimeUnit timeUnit() default TimeUnit.SECONDS;
+
+    /**
      * 允许设置加锁的过期时间，默认为5秒。这意味着在第一次请求之后的5秒内，相同的请求将被视为重复并被阻止
      */
     long lockTime() default 5;
@@ -34,5 +40,10 @@ public @interface RepeatSubmit {
      * 提示语
      */
     String msg() default "请勿重复提交！";
+
+    /**
+     * redis key 的前缀
+     */
+    String preKey();
 
 }
