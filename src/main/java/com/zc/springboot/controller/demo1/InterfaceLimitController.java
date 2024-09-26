@@ -31,12 +31,24 @@ public class InterfaceLimitController {
     }
 
 
+    /**
+     * 验证防止接口重复提交
+     * @return com.open.response.Result
+     * @author zc
+     * @date 2024/9/26 14:47
+     */
     @PostMapping("saveUser")
     @RepeatSubmit(limitType = RepeatSubmit.Type.PARAM, lockTime = 5, timeUnit = TimeUnit.SECONDS, preKey = "saveUser", msg = "请求重复提交")
     public Result saveUser() {
         return Result.success("成功保存");
     }
 
+    /**
+     * 验证接口防抖
+     * @return com.open.response.Result
+     * @author zc
+     * @date 2024/9/26 14:47
+     */
     @PostMapping("clickButton")
     @AntiShake(value = 5000, timeUnit = TimeUnit.MILLISECONDS, preKey = "clickButton")
     public Result clickButton() {
